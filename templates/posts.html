@@ -1,0 +1,24 @@
+<html>
+  <body>
+    <h1>Articles</h1>
+    <a href="{{url_for('newPost')}}">
+      <button>Ajoutez un article</button>
+    </a>
+    <ol>
+      {% for post in posts %}
+      <li>{{post.title}} - imageURL: {{post.image}}</li>
+      <a href="{{url_for('editPost', post_id = post.id )}}">
+        Modifier
+      </a>
+      <a
+        href="{{url_for('deletePost', post_id = post.id )}}"
+        style="margin-left: 10px;"
+      >
+        Supprimer
+      </a>
+      <br />
+      <br />
+      {% endfor %}
+    </ol>
+  </body>
+</html>
